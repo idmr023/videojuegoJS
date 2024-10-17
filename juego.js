@@ -28,7 +28,6 @@ var Juego = {
     create: function() {
         sonidoFondo = juego.add.audio('fondo');
         sonidoColision = juego.add.audio('colision');
-        sonidoFondo.loopFull(); // Reproducir sonido de fondo en loop
 
         fondo = juego.add.tileSprite(0, 0, 290, 540, 'bg');
         carro = juego.add.sprite(juego.width / 2, 496, 'carro');
@@ -115,6 +114,9 @@ var Juego = {
         score++; // Aumentar puntuación
         textoContador.text = 'Gasolina: ' + contadorGasolina; // Actualizar el texto del contador
         textoScore.text = 'Puntuación: ' + score; // Actualizar puntuación
+
+        // Reproducir sonido de fondo al recoger gasolina
+        sonidoFondo.play(); // Reproducir sonido de fondo
 
         // Comprobar si se han recogido 10 puntos
         if (score >= 10) {
